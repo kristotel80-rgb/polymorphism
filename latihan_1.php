@@ -51,9 +51,9 @@ class Segitiga implements BangunDatar {
 }
 
 # Pemanggilan
-$persegi = new Persegi(8);
+$persegi = new Persegi(6);
 $lingkaran = new Lingkaran(10);
-$segitiga = new Segitiga(2, 4);
+$segitiga = new Segitiga(8, 10);
 
 echo "Luas Persegi: " . $persegi->hitungLuas() . "<br>";
 echo "Luas Lingkaran: " . $lingkaran->hitungLuas() . "<br>";
