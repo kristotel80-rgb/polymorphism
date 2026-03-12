@@ -1,62 +1,68 @@
 <?php
-# Interface BangunDatar
-interface BangunDatar {
-
-    public function hitungLuas();
-
+// Abstract class sebagai parent
+// Berisi method hitungLuas tetapi belum memiliki isi
+abstract class BangunDatar {
+    abstract public function hitungLuas();
 }
 
-# Class Persegi
-class Persegi implements BangunDatar {
-
+// Child class Persegi
+class Persegi extends BangunDatar {
     public $sisi;
 
+    // untuk mengisi nilai sisi
     public function __construct($sisi) {
         $this->sisi = $sisi;
     }
 
+    // method untuk menghitung luas persegi
     public function hitungLuas() {
-        return $this->sisi * $this->sisi;
+        echo "Luas Persegi = " . ($this->sisi * $this->sisi);
     }
 }
 
-# Class Lingkaran
-class Lingkaran implements BangunDatar {
-
+// Child class Lingkaran
+class Lingkaran extends BangunDatar {
     public $radius;
 
+    // constructor untuk mengisi jari-jari lingkaran
     public function __construct($radius) {
         $this->radius = $radius;
     }
 
+    // menghitung luas lingkaran
     public function hitungLuas() {
-        return 3.14 * $this->radius * $this->radius;
+        echo "Luas Lingkaran = " . (3.14 * $this->radius * $this->radius);
     }
 }
 
-# Class Segitiga
-class Segitiga implements BangunDatar {
-
+// Child class Segitiga
+class Segitiga extends BangunDatar {
     public $alas;
     public $tinggi;
 
+    // untuk mengisi nilai alas dan tinggi
     public function __construct($alas, $tinggi) {
         $this->alas = $alas;
         $this->tinggi = $tinggi;
     }
 
+    // untuk menghitung luas segitiga
     public function hitungLuas() {
-        return 0.5 * $this->alas * $this->tinggi;
+        echo "Luas Segitiga = " . (0.5 * $this->alas * $this->tinggi);
     }
 }
 
-# Pemanggilan
+// Membuat object
 $persegi = new Persegi(6);
 $lingkaran = new Lingkaran(10);
 $segitiga = new Segitiga(8, 10);
 
-echo "Luas Persegi: " . $persegi->hitungLuas() . "<br>";
-echo "Luas Lingkaran: " . $lingkaran->hitungLuas() . "<br>";
-echo "Luas Segitiga: " . $segitiga->hitungLuas() . "<br>";
+// Memanggil method
+$persegi->hitungLuas();
+echo "<br>";
 
+$lingkaran->hitungLuas();
+echo "<br>";
+
+$segitiga->hitungLuas();
 ?>

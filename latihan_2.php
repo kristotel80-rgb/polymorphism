@@ -1,42 +1,37 @@
 <?php
-# Parent Class (Abstract)
-abstract class Notifikasi {
-
-    abstract public function kirim();
+# Interface Notifikasi
+interface Notifikasi {
+    public function kirim();
 }
 
-# Child Class
-class Email extends Notifikasi {
-
+# Implementasi Class
+class Email implements Notifikasi {
     public function kirim() {
         echo "Notifikasi dikirim melalui Email";
     }
 }
 
-class SMS extends Notifikasi {
-
+class SMS implements Notifikasi {
     public function kirim() {
         echo "Notifikasi dikirim melalui SMS";
     }
 }
 
-class WhatsApp extends Notifikasi {
-
+class WhatsApp implements Notifikasi {
     public function kirim() {
         echo "Notifikasi dikirim melalui WhatsApp";
     }
 }
 
-# Pemanggilan
+# Membuat object
 $email = new Email();
 $sms = new SMS();
 $wa = new WhatsApp();
 
+# Pemanggilan
 $email->kirim();
 echo "<br>";
-
 $sms->kirim();
 echo "<br>";
-
 $wa->kirim();
 ?>
